@@ -1,0 +1,9 @@
+Create a customer facing chatbot, which would a travel consultant of Vilnius city:
+
+The setup should be regular: Streamlit + Openrouter (gemini 2.5 flash).
+Use context engineering to embed the required information into the prompt.
+
+There are several additional rules:
+1. The chatbot should only answer the questions about Vilnius only.
+2. It should only answer in Lithuanian.
+3. Chatbot should be brief and polite.
