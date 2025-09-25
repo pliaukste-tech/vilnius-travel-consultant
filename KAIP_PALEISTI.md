@@ -14,9 +14,18 @@ Tai yra AI chatbot'as, kuris padeda planuoti keliones po Vilnių. Jis naudoja Op
 ### 2. OpenRouter API raktas
 1. Eikite į https://openrouter.ai
 2. Užsiregistruokite arba prisijunkite
-3. Eikite į "API Keys" skyrių
-4. Sukurkite naują API raktą
-5. Nukopijuokite ir išsaugokite šį raktą (jums reikės jo vėliau)
+3. **SVARBU**: Įsitikinkite, kad jūsų paskyra patvirtinta (patikrinkite el. paštą)
+4. Papildykite paskyrą kreditais (minimum $1-2 pakaks bandymams)
+5. Eikite į "Keys" skyrių (ne "API Keys")
+6. Sukurkite naują API raktą
+7. **LABAI SVARBU**: Nukopijuokite VISĄ raktą - jis turi prasidėti `sk-or-v1-`
+8. Išsaugokite šį raktą saugioje vietoje
+
+**🚨 Dažnos klaidos:**
+- Nepatvirtinta paskyra
+- Nėra kreditų paskyroje
+- Nukopijuotas ne visas API raktas
+- Sumaišyti "API Keys" su "Keys" skyriais
 
 ## 🚀 Kaip paleisti chatbot'ą
 
@@ -53,7 +62,8 @@ streamlit run main.py
 ### 7. Naudojimasis
 - Jūsų naršyklėje automatiškai atsidars http://localhost:8501
 - Jei neatsidaro automatiškai, eikite į šį adresą naršyklėje
-- Šoniniame meniu įveskite savo OpenRouter API raktą
+- Šoniniame meniu įveskite savo OpenRouter API raktą (visą, prasidedantį `sk-or-v1-`)
+- Paspauskite "🔍 Patikrinti API ryšį" kad įsitikintumėte, jog raktas veikia
 - Pradėkite užduoti klausimus lietuviškai!
 
 ## 🛑 Kaip sustabdyti chatbot'ą
@@ -82,8 +92,11 @@ Galite užduoti tokius klausimus:
 - Įvykdykite: `pip install -r requirements.txt`
 
 ### API klaidos
-- Patikrinkite, ar teisingai įvedėte OpenRouter API raktą
+- Patikrinkite, ar teisingai įvedėte OpenRouter API raktą (turi prasidėti `sk-or-v1-`)
 - Patikrinkite, ar turite pakankamai kreditų OpenRouter paskyroje
+- Įsitikinkite, kad jūsų OpenRouter paskyra patvirtinta
+- Pabandykite sukurti naują API raktą
+- Naudokite "🔍 Patikrinti API ryšį" funkciją
 
 ### Lietuviškos raidės neveikia
 - Šis chatbot'as palaiko lietuviškas raides (ą, č, ę, ė, į, š, ų, ū, ž)
