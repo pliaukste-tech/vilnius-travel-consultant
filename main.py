@@ -12,6 +12,7 @@ st.set_page_config(
 # Title and description
 st.title("🏛️ Vilnius Travel Consultant")
 st.markdown("**AI pagalbininkas kelionėms po Vilnių** | Powered by Gemini 2.5 Flash")
+st.info("ℹ️ Šis chatbot'as naudoja tik specialiai paruoštus duomenis apie 9 svarbiausias Vilniaus vietas ir jų istoriją.")
 
 # Sidebar for API key input
 with st.sidebar:
@@ -66,6 +67,20 @@ with st.sidebar:
     """)
     
     st.markdown("---")
+    st.markdown("### 🏛️ Galimos temos:")
+    st.markdown("""
+    - **Stiklo kvartalas** - auksakalių kvartalas
+    - **Gedimino pilis** - simbolis su apžvalgos aikštele  
+    - **Užupio respublika** - menininkų rajonas
+    - **Žvėryno rajonas** - 108 mediniai namai
+    - **Onos bažnyčia** - gotikos šedevras
+    - **Vilniaus katedra** - krikšto simbolis
+    - **Aušros vartai** - gynybiniai vartai su Madona
+    - **Užutrakio sodyba** - dvaras prie ežero
+    - **Verkių dvaras** - "Vilniaus Versalis"
+    """)
+    
+    st.markdown("---")
     st.markdown("### 🔑 API rakto gavimas:")
     st.markdown("""
     1. Eikite į [OpenRouter.ai](https://openrouter.ai)
@@ -116,9 +131,40 @@ if prompt := st.chat_input("Užduokite klausimą apie Vilnių... 🏛️"):
                 {
                     "role": "system", 
                     "content": """Tu esi Vilniaus kelionių konsultantas. Visada atsakyk lietuviškai. 
-                    Tavo tikslas - padėti žmonėms planuoti keliones po Vilnių ir suteikti informaciją apie miestą. 
-                    Būk draugiškas, informatyvus ir naudojamas. Jei nežinai tikslaus atsakymo, pasakyk, kad nežinai, 
-                    bet pasiūlyk alternatyvas ar bendras rekomendacijas apie Vilnių."""
+                    SVARBU: Naudok TIKTAI žemiau pateiktą informaciją apie Vilnių. NEGALIMA naudoti jokių kitų šaltinių ar žinių. 
+                    Jei klausimas nėra susijęs su pateikta informacija, pasakyk, kad neturi informacijos apie tai.
+                    
+                    VILNIAUS INFORMACIJA:
+                    
+                    STIKLO KVARTALAS:
+                    Stiklo kvartalas susikūrė 2018-ųjų spalį Stiklių, M. Antokolskio, Gaono ir Žydų gatvių teritorijoje. Jau daugiau nei 600 metų skaičiuojantis kvartalas buvo žydų gyvenamoji vieta, auksakalių, stiklapūčių, amatininkų ir finansininkų miestelis. 1495 m. čia buvo įkurta auksakalių gildija, 1547 m. – pirmoji LDK stiklo manufaktūra. Iki šiol glaudžia juvelyrus, vietos menininkų krautuvėles ir dirbtuves, jaukius restoranus, kamerinį orkestrą, meno galerijas ir viešbutį „Stikliai".
+
+                    GEDIMINO PILIS:
+                    Gedimino pilies bokštas - lankomiausias Lietuvos nacionalinio muziejaus padalinys. Vienintelis išlikęs Aukštutinės pilies įtvirtinimo bokštas. Pirmiausia buvo medinė pilis, 1409 m. Vytautas Didysis pastatė mūrinę pilį. Bokšte istorinė paroda su Vilniaus pilių rekonstrukcijos modeliais, ginkluote. Antrame aukšte interaktyvi ekspozicija „Laiko juostos vaizdai pro Gedimino pilies bokšto langus". Trečiame aukšte - apie Baltijos kelią 1989 m. Bokšto apžvalgos aikštelė atskleidžia Vilniaus panoramą.
+
+                    UŽUPIO RESPUBLIKA:
+                    Menininkų respublika su nuosavu himnu, konstitucija (Paupio gatvės pradžioje ant tvoros), prezidentu, vyskupu. Vienas seniausių Vilniaus rajonų (minimas XVI a.). Senovėje buvo malūnų ir vargingųjų priemiestis. Simboliai: bronzinė undinėlė (Užupio mergelė, skulpt. Romas Vilčiauskas) ir Angelo skulptūra (2002 m., centr. aikštėje). Sovietmečiu apleistas, dabar prestižiškas rajonas su festivaliais, koncertais, parodomis.
+
+                    ŽVĖRYNO RAJONAS:
+                    XVI-XIX a. priklausė Radviloms, turėjusiems žvėrių medžioklės rezervatą. 108 mediniai namai su šveicariškais bokšteliais, rusiško stiliaus langų apvadais, tradicine lietuviška ornamentika. Žvėryno tvenkiniai (nuo XVI a.), tiltas į Vingio parką. Šalia Liubarto tilto - karaimų kenesa, stačiatikių Švč. Mergelės Marijos cerkvė (1903 m.).
+
+                    ONOS BAŽNYČIA:
+                    Šv. Onos bažnyčia - vėlyvosios gotikos šedevras, per penkis šimtmečius beveik nepakitusi. Legenda: Napoleonas norėjo ją nusinešti į Paryžių. Šalia XIX a. varpinė, imituojanti gotikos stilių. Bernardinų istorinis-architektūrinis ansamblis su Šv. Pranciškaus Asyžiečio bažnyčia ir vienuolynu (XV a.). Vienuolyno gotikinis interjeras, žvaigždiniai ir kryžminiai skliautai.
+
+                    VILNIAUS KATEDRA:
+                    Šv. Stanislovo ir Šv. Vladislovo arkikatedra bazilika - Lietuvos krikšto simbolis. Pastatyta buvusios pagonių šventyklos vietoje. Čia ilsisi Šv. Kazimiero palaikai. Klasicistinio stiliaus (architektas Laurynas Stuoka-Gucevičius), bet mūruose gotikos, renesanso, baroko pėdsakai. 57 m varpinės bokštas (XIII a. pradžia, gynybinis bokštas, XVI a. tapo varpine). Viršuje seniausias miesto laikrodis.
+
+                    AUŠROS VARTAI:
+                    Vieninteliai išlikę iš 10 miesto gynybinių vartų (paminėti 1514 m.). Pradžioje vadinti Medininkų vartais. Koplyčioje stebuklingas Švenčiausiosios Mergelės Marijos paveikslas (XVII a., pagal Martino de Voso pavyzdį), vadinamas Aušros Vartų Madona ar Vilniaus Madona. Garbino katalikai, stačiatikiai, unitai.
+
+                    UŽUTRAKIO SODYBA:
+                    Ant Galvės ežero kranto. XX a. pradžioje įkūrė grafas Juozapas Tiškevičius su žmona Jadvyga. Patenkama plaustu per ežerų sąsmauką (sausumos kelias - tik ūkiui, vadintas Bulvių keliu). Rūmus kūrė architektas Juzefas Husas, parką - Eduardas Fransua Andrė. Mišraus stiliaus parkas su antikinių skulptūrų kopijomis, beveik 100 rūšių medžiai ir krūmai.
+
+                    VERKIŲ DVARAS:
+                    Vilniaus pakraštyje prie Neries upės. Stačiuose šlaituose kelių šimtų metų ąžuolai (1,5 m skersmens). Kadaise šventas ąžuolynas - didžiųjų kunigaikščių valda. XIV a. pabaigos rūmai - "Vilniaus Versalis". 1786 m. oranžerijos su tropiniais augalais iš Italijos. Po Lietuvos krikšto Jogaila užrašė vyskupams. Architektas Martynas Knakfusas ir Laurynas Stuoka-Gucevičius sukūrė klasicistinį ansamblį.
+                    
+                    Atsakyk TIKTAI remiantis šia informacija. Jei klausiama apie ką nors, ko nėra šioje informacijoje, pasakyk: "Atsiprašau, neturiu informacijos apie tai savo duomenų bazėje. Galiu papasakoti apie: Stiklo kvartalą, Gedimino pilį, Užupio respubliką, Žvėryno rajoną, Onos bažnyčią, Vilniaus katedrą, Aušros vartus, Užutrakio sodybą arba Verkių dvarą."
+                    """
                 }
             ]
             
